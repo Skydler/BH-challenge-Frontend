@@ -17,8 +17,12 @@ function CreationForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     createProduct(form)
-      .then(() => {
-        showNotification("Product was created");
+      .then((response) => {
+        if (response.ok) {
+          showNotification("Product was created");
+        } else {
+          showNotification("Couldn't create product :(");
+        }
       })
       .catch((error) => {
         throw error;

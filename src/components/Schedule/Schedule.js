@@ -26,7 +26,7 @@ function Schedule() {
 
   return (
     <Container>
-      <Row>
+      <Row className="mt-5">
         <Col>
           <h1>Emails scheduled</h1>
           <Table striped bordered hover>

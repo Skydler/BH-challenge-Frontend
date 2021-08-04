@@ -15,8 +15,12 @@ function DeletionForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     deleteProduct(form)
-      .then(() => {
-        showNotification("Product was deleted");
+      .then((response) => {
+        if (response.ok) {
+          showNotification("Product was deleted");
+        } else {
+          showNotification("Couldn't delete product :(");
+        }
       })
       .catch((error) => {
         throw error;

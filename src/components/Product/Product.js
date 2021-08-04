@@ -22,7 +22,7 @@ function Product() {
 
   return (
     <Container>
-      <Row>
+      <Row className="mt-5">
         <Col>
           <h1>Create product form</h1>
           <CreationForm notificationHandler={showNotification} />
