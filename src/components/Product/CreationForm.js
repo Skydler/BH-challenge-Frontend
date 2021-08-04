@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { createProduct } from "../../services/api";
 
-function CreationForm() {
+function CreationForm(props) {
   const [form, setForm] = useState({
     customer_id: "",
     product_name: "",
@@ -12,11 +12,17 @@ function CreationForm() {
     duration_months: "",
   });
 
+  const showNotification = props.notificationHandler;
+
   function handleSubmit(event) {
     event.preventDefault();
-    createProduct(form).catch((error) => {
-      throw error;
-    });
+    createProduct(form)
+      .then(() => {
+        showNotification("Product was created");
+      })
+      .catch((error) => {
+        throw error;
+      });
   }
 
   function handleFormChange(event) {

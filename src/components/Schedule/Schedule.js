@@ -28,6 +28,7 @@ function Schedule() {
     <Container>
       <Row>
         <Col>
+          <h1>Emails scheduled</h1>
           <Table striped bordered hover>
             <thead>
               <tr>
